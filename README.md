@@ -1,4 +1,3 @@
-```markdown
 # Easy Votes
 
 Aquest projecte permet crear i gestionar una enquesta amb una sola pregunta i quatre opcions de resposta. Els resultats de l'enquesta es mostren en un gràfic de barres, i els administradors poden modificar la pregunta i les opcions, buidar les dades i descarregar els resultats en format Excel.
@@ -87,4 +86,4 @@ Les contribucions són benvingudes! Si voleu col·laborar:
 ## Llicència
 
 Aquest projecte està llicenciat sota la llicència [Creative Commons Zero](LICENSE).
-```
+
