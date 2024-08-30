@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Modal per demanar el nom -->
+    <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center" id="nameModal" style="display: none;">
+        <div class="bg-white rounded-lg p-6 w-80">
+            <h2 class="text-xl font-semibold mb-4">Introduce tu nombre</h2>
+            <input type="text" id="userName" placeholder="Tu nombre" class="border border-gray-300 rounded w-full p-2 mb-4">
+            <button id="saveName" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Guardar</button>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-6" id="mainContent">
+        <h1 class="text-2xl font-bold mb-6">Cargando encuesta...</h1>
+        <form id="survey-form" class="mb-6">
+            <!-- Les opcions es generaran dinàmicament aquí -->
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Votar</button>
+        </form>
+
+        <div id="saving-message" class="text-center font-bold mb-4" style="display: none;">Guardando...</div>
+
+        <h2 class="text-xl font-semibold mb-4">Resultados:</h2>
+        <p class="mb-4">Total de votos: <span id="total-votes">0</span></p>
+        <div id="chart-container" class="mb-6">
+            <canvas id="results-chart"></canvas>
+        </div>
+
+        <div id="admin-view" class="hidden">
+            <h3 class="text-lg font-semibold mb-2">Editar Pregunta i Opcions:</h3>
+            <form id="edit-form" class="mb-4">
+                <div class="mb-2">
+                    <label for="question" class="block mb-1">Pregunta:</label>
+                    <input type="text" id="question" class="border border-gray-300 rounded w-full p-2">
+                </div>
+                <div class="mb-2">
+                    <label for="option1" class="block mb-1">Opció 1:</label>
+                    <input type="text" id="option1" class="border border-gray-300 rounded w-full p-2">
+                </div>
+                <div class="mb-2">
+                    <label for="option2" class="block mb-1">Opció 2:</label>
+                    <input type="text" id="option2" class="border border-gray-300 rounded w-full p-2">
+                </div>
+                <div class="mb-2">
+                    <label for="option3" class="block mb-1">Opció 3:</label>
+                    <input type="text" id="option3" class="border border-gray-300 rounded w-full p-2">
+                </div>
+                <div class="mb-2">
+                    <label for="option4" class="block mb-1">Opció 4:</label>
+                    <input type="text" id="option4" class="border border-gray-300 rounded w-full p-2">
+                </div>
+                <button type="button" id="save-changes" class="bg-green-500 text-white px-4 py-2 rounded">Guardar Canvis</button>
+                <button type="button" id="clear-json" class="bg-red-500 text-white px-4 py-2 rounded ml-2">Buidar Dades</button>
+            </form>
+
+            <h3 class="text-lg font-semibold mb-2">Votos detallados:</h3>
+            <pre id="votes-list" class="bg-gray-100 p-4 rounded"></pre>
+            <button id="download-excel" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Descarregar en Excel</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="script12.js"></script>
+</body>
+</html>
